@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Email Generator</title>
+    <style>
+        body {
+            font-family: Arial;
+            max-width: 600px;
+            margin: 50px auto;
+        }
+        textarea {
+            width: 100%;
+            height: 200px;
+        }
+        input, select, button {
+            width: 100%;
+            margin: 10px 0;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>🎓 Student Email Generator</h2>
+
+<input type="text" id="name" placeholder="Your Name">
+
+<select id="type">
+    <option value="professor">Contact Professor</option>
+    <option value="internship">Internship Application</option>
+</select>
+
+<button onclick="generateEmail()">Generate Email</button>
+
+<textarea id="result"></textarea>
+
+<script>
+function generateEmail() {
+    var name = document.getElementById("name").value;
+    var type = document.getElementById("type").value;
+    var email = "";
+
+    if(type === "professor") {
+        email = "Dear Professor,\n\nMy name is " + name + 
+        ". I am very interested in your research work. I would like to ask if there are any opportunities to join your research group.\n\nThank you for your time.\n\nBest regards,\n" + name;
+    } else {
+        email = "Dear Hiring Manager,\n\nMy name is " + name + 
+        ". I am writing to apply for the internship position at your company.\n\nThank you for considering my application.\n\nBest regards,\n" + name;
+    }
+
+    document.getElementById("result").value = email;
+}
+</script>
+
+</body>
+</html>
